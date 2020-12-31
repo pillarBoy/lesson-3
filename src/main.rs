@@ -46,11 +46,11 @@ fn main() -> std::io::Result<()> {
     // 按顺序处理 客户端发过来的请求
     for stream in listener.incoming() {
         // let stream_result = stream.unwrap();
-        
+
         // 模式匹配方式，处理stream 异常错误
         let stream_result = match stream {
             Ok(stream) => stream,
-            Err(error) => panic!("stream error {}", error)
+            Err(error) => panic!("stream error {:?}", error)
         };
 
         // 创建线程处理请求
